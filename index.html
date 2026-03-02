@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Namrata | Digital Marketing Portfolio</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-pink-50 via-purple-50 to-indigo-100">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-8 md:px-20 py-6 bg-white shadow-md">
+  <h1 class="text-2xl font-bold text-purple-600">Namrata</h1>
+  <ul class="hidden md:flex gap-8 font-medium text-gray-700">
+    <li class="hover:text-purple-600 cursor-pointer">Home</li>
+    <li class="hover:text-purple-600 cursor-pointer">Skills</li>
+    <li class="hover:text-purple-600 cursor-pointer">Projects</li>
+    <li class="hover:text-purple-600 cursor-pointer">Contact</li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="flex flex-col md:flex-row items-center justify-between px-8 md:px-20 py-20">
+
+  <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-800">
+      Hello, I'm <span class="text-purple-600">Namrata</span> 👋
+    </h2>
+
+    <h3 class="text-xl text-gray-600">
+      <span id="typing"></span>
+    </h3>
+
+    <button class="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full shadow-lg hover:scale-105 transition duration-300">
+      Explore My Work
+    </button>
+  </div>
+
+  <div class="md:w-1/2 mt-10 md:mt-0 float" data-aos="fade-left">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+         class="w-72 mx-auto">
+  </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="bg-white py-16">
+  <div class="grid grid-cols-1 md:grid-cols-3 text-center gap-10">
+
+    <div data-aos="zoom-in">
+      <h3 class="text-4xl font-bold text-purple-600 counter" data-target="5">0</h3>
+      <p class="text-gray-600">Projects Completed</p>
+    </div>
+
+    <div data-aos="zoom-in">
+      <h3 class="text-4xl font-bold text-purple-600 counter" data-target="3">0</h3>
+      <p class="text-gray-600">Certifications</p>
+    </div>
+
+    <div data-aos="zoom-in">
+      <h3 class="text-4xl font-bold text-purple-600 counter" data-target="2">0</h3>
+      <p class="text-gray-600">Internships</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="py-20 px-8 md:px-20">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">
+    My Skills
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <h3 class="text-xl font-semibold text-purple-600 mb-3">SEO</h3>
+      <p class="text-gray-600">Keyword research, on-page SEO & optimization basics.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <h3 class="text-xl font-semibold text-purple-600 mb-3">Social Media</h3>
+      <p class="text-gray-600">Instagram growth, content strategy & engagement tactics.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <h3 class="text-xl font-semibold text-purple-600 mb-3">Google Ads</h3>
+      <p class="text-gray-600">Basic campaign setup & understanding performance metrics.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-purple-600 text-white text-center py-6">
+  © 2026 Namrata | Digital Marketing Portfolio
+</footer>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000 });
+
+  // Typing effect
+  const text = "Creative & Data-Driven Digital Marketing Fresher";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 50);
+    }
+  }
+  typing();
+
+  // Counter animation
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 100;
+      if (count < target) {
+        counter.innerText = `${Math.ceil(count + increment)}`;
+        setTimeout(updateCounter, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCounter();
+  });
+</script>
+
+</body>
+</html>
